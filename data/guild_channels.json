@@ -1,0 +1,16 @@
+{
+  "global":{
+    "admin_logs":{
+      "355912436811038721":{
+        "type":"fancy | condensed | fancy-condensed | ",
+        "events":[
+          "GUILD_JOIN",
+          "GUILD_AVAILABLE",
+          "GUILD_LEAVE",
+          "GUILD_UNAVAILABLE",
+          "GUILD_WHITELISTED"
+        ]
+      }
+    }
+  }
+}
