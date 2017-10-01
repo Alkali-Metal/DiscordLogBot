@@ -211,6 +211,10 @@ class LoggingCommands(Plugin):
         #Assigning some variables
         guild_id = str(event.guild.id)
         
+        #Checking to make sure the guild exists in the database
+        if guild_id not in guilds:
+            return event.msg.reply(response.command.no_guild_data)
+        
         #Checking permissions
         if not is_allowed(guild=event.msg.guild, user=event.msg.author):
             return event.msg.reply(response.command.invalid_permissions)
