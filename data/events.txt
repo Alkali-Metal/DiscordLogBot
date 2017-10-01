@@ -1,0 +1,50 @@
+ADMIN EVENTS:
+These events are only able to be added to an admin log which can only be created
+by bot admins.
+GUILD_CREATE - When the bot is added to a guild.
+GUILD_DELETE - When the bot is kicked or banned from a guild.
+GUILD_LEAVE - When the bot leaves a guild on it's own. (Only called when the leave
+              command is ran or when guilds must be whitelisted)
+
+
+USER EVENTS:
+These events can be triggered from any guild and will only log the events in those
+guilds.
+
+GUILD_BOT_UPDATE - When a log setting is updated or created or deleted, useful if you are allowing other users to create logs.
+GUILD_UPDATE - When a server setting get's changed. (The Overview/Moderation tabs)
+USER_JOIN - When a user joins the guild.
+USER_JOIN_RANDOM - Uses a random message instead of a consistent one when logging user joins.
+USER_LEAVE - When a user leaves the guild.
+USER_UPDATE - When a user get's updated. (nickname, etc.)
+MESSAGE_EDIT - When a message gets edited.
+MESSAGE_DELETE - When a message gets deleted.
+MENTION_EVERYONE - When a message fully mentions everyone
+MENTION_EVERYONE_ATTEMPT - When a message tries to but doesn't mention everyone.
+TTS_USAGE - When a user creates a TTS message.
+REACTION_ADD - When a user adds a reaction to a message.
+REACTION_REMOVE - When a user removes a reaction from a message.
+REACTION_REMOVE_ALL - When all the reactions from a message have been removed.
+INVITE_CREATE - When an instant invite is created.
+INVITE_DELETE - When an instant invite is deleted.
+VOICE_CHANNEL_CREATE - When a voice channel gets created.
+VOICE_CHANNEL_UPDATE - When a voice channel gets updated. (Permissions, etc.)
+VOICE_CHANNEL_DELETE - When a voice channel gets deleted.
+TEXT_CHANNEL_CREATE - When a text channel gets created.
+TEXT_CHANNEL_UPDATE - When a text channel gets updated. (Permissions, etc.)
+TEXT_CHANNEL_DELETE - When a text channel gets deleted.
+PINS_UPDATE - When a message gets pinned or unpinned in a channel.
+BAN_ADD - When a user gets banned.
+BAN_REMOVE - When a user gets unbanned.
+EMOJI_UPDATE - When an emoji gets updated.
+INTEGRATION_UPDATE - When an integration with the server is updated.
+ROLE_CREATE - When a role is created.
+ROLE_UPDATE - When a role is updated. (Name, permissions, etc.)
+ROLE_DELETE - When a role is deleted.
+USER_PRESENCE_UPDATE - When a user's presence has been changed. (Only works in guilds with LESS THAN 500 users)
+USER_VOICE_STATE - When a user joins or leaves a voice channel.
+VOICE_SERVER_UPDATE - When the guild's voice server gets changed.
+WEBHOOK_CREATE - When a webhook is created.
+WEBHOOK_UPDATE - When a webhook is updated. (Name, image, etc)
+WEBHOOK_DELETE - When a webhook is deleted.
+NON-BOT_EMBED - When a non-bot account creates an embed without a link.
