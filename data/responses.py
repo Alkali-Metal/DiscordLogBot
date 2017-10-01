@@ -1,3 +1,5 @@
+docs_link = "https://www.logbot.rtfd.io"
+
 class compact:
     GUILD_CREATE = ":inbox_tray: Guild Joined: {event.guild.name} (`{event.guild.id}`)"
     GUILD_DELETE = ":outbox_tray: Guild Removed: {event.guild.name} (`{event.guild.id}`) ```{data[guild_data]}```"
@@ -31,9 +33,9 @@ class compact:
     BAN_REMOVE = ""
     EMOJI_UPDATE = ""
     INTEGRATION_UPDATE = ""
-    ROLE_CREATE = "<:upvote:363848505024053248> Role created."
-    ROLE_UPDATE = ""
-    ROLE_DELETE = ""
+    ROLE_CREATE = "<:upvote:363848505024053248> Role created with ID: `{e.role.id}`"
+    ROLE_UPDATE = ":printer: Role: `{e.role.name}` (`{e.role.id}`) had it's settings changed."
+    ROLE_DELETE = "<:downvote:363848504990367744> Role **{e.role.name}** deleted. (ID: `{e.role.id}`)"
     USER_PRESENCE_UPDATE = ""
     USER_VOICE_STATE = ""
     VOICE_SERVER_UPDATE = ""
@@ -44,49 +46,49 @@ class compact:
     USER_JOIN_RANDOM = ""
     
 class fancy:
-    GUILD_CREATE = [None, "Guild Joined", "Name: {event.guild.name}\nID: `{event.guild.id}`", "Triggered by: GUILD_CREATE", "https://www.logbot.rtfd.io", None]
-    GUILD_DELETE = [None, "Guild Removed", "Name: {event.guild.name}\nID: `{event.guild.id}`\nData: ```{guild_data}```", "Triggered by: GUILD_DELETE", "https://www.logbot.rtfd.io", None]
-    GUILD_LEAVE = [None, "Guild Left", "Name: {guild_name}\n ID: `{guild_id}`\n Data: ```{guild_data}```", "Triggered by: GUILD_LEAVE", "https://www.logbot.rtfd.io", None]
-    BOT_LOG_CREATE = [None, "Log Created", "Channel: <#{}>\nType: `{}`\nResponsable User: {} (`{}`)", "Triggered by: BOT_LOG_CREATE", "https://www.logbot.rtfd", None]
-    BOT_LOG_DELETE = [None, "Log Deleted", "Channel: <#{}>\nResponsable User: {} (`{}`)", "Triggered by: BOT_LOG_DELETE", "https://www.logbot.rtfd.io", None]
-    BOT_EVENT_ADD = [None, "Event Added To Log", "Log Channel: <#{}>\nEvent(s): `{}`\nResponsable User: `{}`", "Triggered by: BOT_EVENT_ADD", "https://www.logbot.rtfd.io", None]
-    BOT_EVENT_REMOVE = [None, "Event Removed from Log", "Log Channel: <#{}>\nEvent(s): `{}`\n Responsable User: {} (`{}`)", "Triggered by: BOT_EVENT_REMOVE", "https://www.logbot.rtfd.io", None]
-    BOT_EVENT_DATA = [None, "Event Data Modified", "Log Channel: <#{}>\nEvent: `{}`\nResponsable User: {} (`{}`)", "Triggered by: BOT_EVENT_DATA", "https://logbot.rtfd.io", None]
-    GUILD_UPDATE = [None, "Guild Updated", "Guild Settings have been updated.", "Triggered by: GUILD_UPDATE", "https://logbot.rtfd.io", None]
-    USER_JOIN = [None, "User Joined", "{} joined the server!", "Triggered by: USER_JOIN", "https://logbot.rtfd.io", None]
-    USER_LEAVE = [None, "User Left${} left the server.", "Triggered by: USER_LEAVE", "https://logbot.rtfd.io", None]
-    USER_UPDATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    MESSAGE_EDIT = [None, "", "", None, "https://logbot.rtfd.io", None]
-    MESSAGE_DELETE = [None, "Message Deleted", "A message from: {} (`{}`) was deleted in <#{}> with the content: ```{}```\n\n[Attachment]({})", "Triggered by: MESSAGE_DELETE", "https://logbot.rtfd.io", None]
-    MENTION_EVERYONE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    TTS_USAGE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    REACTION_ADD = [None, "", "", None, "https://logbot.rtfd.io", None]
-    REACTION_REMOVE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    REACTION_REMOVE_ALL = [None, "", "", None, "https://logbot.rtfd.io", None]
-    INVITE_CREATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    INVITE_DELETE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    VOICE_CHANNEL_CREATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    VOICE_CHANNEL_UPDATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    VOICE_CHANNEL_DELETE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    TEXT_CHANNEL_CREATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    TEXT_CHANNEL_UPDATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    TEXT_CHANNEL_DELETE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    PINS_UPDATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    BAN_ADD = [None, "", "", None, "https://logbot.rtfd.io", None]
-    BAN_REMOVE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    EMOJI_UPDATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    INTEGRATION_UPDATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    ROLE_CREATE = [None, "Role Created", "Name: {e.role.name}\nID: `{e.role.id}`\nManaged By Application: {e.role.managed}", "Triggered by: ROLE_CREATE", "https://logbot.rtfd.io", 0x00AA00]
-    ROLE_UPDATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    ROLE_DELETE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    USER_PRESENCE_UPDATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    USER_VOICE_STATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    VOICE_SERVER_UPDATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    WEBHOOK_CREATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    WEBHOOK_UPDATE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    WEBHOOK_DELETE = [None, "", "", None, "https://logbot.rtfd.io", None]
-    NON_BOT_EMBED = [None, "", "", None, "https://logbot.rtfd.io", None]
-    USER_JOIN_RANDOM = [None, "", "", None, "https://logbot.rtfd.io", None]
+    GUILD_CREATE = [None, "Guild Joined", "Name: {e.guild.name}\nID: `{e.guild.id}`", "Triggered by: GUILD_CREATE", docs_link, None]
+    GUILD_DELETE = [None, "Guild Removed", "Name: {e.guild.name}\nID: `{e.guild.id}`\nData: ```{data[guild_data]}```", "Triggered by: GUILD_DELETE", docs_link, None]
+    GUILD_LEAVE = [None, "Guild Left", "Name: {e.guild.name}\n ID: `{e.guild.id}`\n Data: ```{data[guild_data]}```", "Triggered by: GUILD_LEAVE", docs_link, None]
+    BOT_LOG_CREATE = [None, "Log Created", "Channel: <#{}>\nType: `{}`\nResponsable User: {} (`{}`)", "Triggered by: BOT_LOG_CREATE", docs_link, None]
+    BOT_LOG_DELETE = [None, "Log Deleted", "Channel: <#{}>\nResponsable User: {} (`{}`)", "Triggered by: BOT_LOG_DELETE", docs_link, None]
+    BOT_EVENT_ADD = [None, "Event Added To Log", "Log Channel: <#{}>\nEvent(s): `{}`\nResponsable User: `{}`", "Triggered by: BOT_EVENT_ADD", docs_link, None]
+    BOT_EVENT_REMOVE = [None, "Event Removed from Log", "Log Channel: <#{}>\nEvent(s): `{}`\n Responsable User: {} (`{}`)", "Triggered by: BOT_EVENT_REMOVE", docs_link, None]
+    BOT_EVENT_DATA = [None, "Event Data Modified", "Log Channel: <#{}>\nEvent: `{}`\nResponsable User: {} (`{}`)", "Triggered by: BOT_EVENT_DATA", docs_link, None]
+    GUILD_UPDATE = [None, "Guild Updated", "Guild Settings have been updated.", "Triggered by: GUILD_UPDATE", docs_link, None]
+    USER_JOIN = [None, "User Joined", "{} joined the server!", "Triggered by: USER_JOIN", docs_link, None]
+    USER_LEAVE = [None, "User Left${} left the server.", "Triggered by: USER_LEAVE", docs_link, None]
+    USER_UPDATE = [None, "", "", None, docs_link, None]
+    MESSAGE_EDIT = [None, "", "", None, docs_link, None]
+    MESSAGE_DELETE = [None, "Message Deleted", "A message from: {} (`{}`) was deleted in <#{}> with the content: ```{}```\n\n[Attachment]({})", "Triggered by: MESSAGE_DELETE", docs_link, None]
+    MENTION_EVERYONE = [None, "", "", None, docs_link, None]
+    TTS_USAGE = [None, "", "", None, docs_link, None]
+    REACTION_ADD = [None, "", "", None, docs_link, None]
+    REACTION_REMOVE = [None, "", "", None, docs_link, None]
+    REACTION_REMOVE_ALL = [None, "", "", None, docs_link, None]
+    INVITE_CREATE = [None, "", "", None, docs_link, None]
+    INVITE_DELETE = [None, "", "", None, docs_link, None]
+    VOICE_CHANNEL_CREATE = [None, "", "", None, docs_link, None]
+    VOICE_CHANNEL_UPDATE = [None, "", "", None, docs_link, None]
+    VOICE_CHANNEL_DELETE = [None, "", "", None, docs_link, None]
+    TEXT_CHANNEL_CREATE = [None, "", "", None, docs_link, None]
+    TEXT_CHANNEL_UPDATE = [None, "", "", None, docs_link, None]
+    TEXT_CHANNEL_DELETE = [None, "", "", None, docs_link, None]
+    PINS_UPDATE = [None, "", "", None, docs_link, None]
+    BAN_ADD = [None, "", "", None, docs_link, None]
+    BAN_REMOVE = [None, "", "", None, docs_link, None]
+    EMOJI_UPDATE = [None, "", "", None, docs_link, None]
+    INTEGRATION_UPDATE = [None, "", "", None, docs_link, None]
+    ROLE_CREATE = [None, "Role Created", "ID: `{e.role.id}`\nManaged By Application: {e.role.managed}", "Triggered by: ROLE_CREATE", docs_link, 0x00AA00]
+    ROLE_UPDATE = [None, "Role Updated", "ID: `{e.role.id}`", None, docs_link, None]
+    ROLE_DELETE = [None, "Role Deleted", "Name: \nID: `{e.role_id}`", "Triggered by ROLE_DELETE", docs_link, None]
+    USER_PRESENCE_UPDATE = [None, "", "", None, docs_link, None]
+    USER_VOICE_STATE = [None, "", "", None, docs_link, None]
+    VOICE_SERVER_UPDATE = [None, "", "", None, docs_link, None]
+    WEBHOOK_CREATE = [None, "", "", None, docs_link, None]
+    WEBHOOK_UPDATE = [None, "", "", None, docs_link, None]
+    WEBHOOK_DELETE = [None, "", "", None, docs_link, None]
+    NON_BOT_EMBED = [None, "", "", None, docs_link, None]
+    USER_JOIN_RANDOM = [None, "", "", None, docs_link, None]
 
 class fanceh:
     GUILD_CREATE = "===========================\n**Guild Joined**\nName: {}\nID: `{}`"
@@ -121,9 +123,9 @@ class fanceh:
     BAN_REMOVE = ""
     EMOJI_UPDATE = ""
     INTEGRATION_UPDATE = ""
-    ROLE_CREATE = "===========================\n**Role Created**\nA role was created"
-    ROLE_UPDATE = ""
-    ROLE_DELETE = ""
+    ROLE_CREATE = "===========================\n**Role Created**\nID: `{e.role.id}`\nManaged: `{e.role.managed}`"
+    ROLE_UPDATE = "===========================\n**Role Updated**\nName: {e.role.name}\nID: `{e.role.id}`"
+    ROLE_DELETE = "===========================\n**Role Deleted**\nName: {e.role.name}\nID: `{e.role.id}`\nManaged: `{e.role.managed}`"
     USER_PRESENCE_UPDATE = ""
     USER_VOICE_STATE = ""
     VOICE_SERVER_UPDATE = ""
@@ -142,7 +144,7 @@ class command:
     not_log_remove = "This channel isn't a log, so I can't remove it."
     cannot_add_event = "Can't add an event to a non-log channel. Run the create command to create a log channel."
     added_log_events = "Added event `{}` to this logging channel."
-    not_log_events = "Events: `{}` do not exist, go to https://logbot.rtfd.io to find a list of valid events." #", go to https://github.com/Alkali-Metal/DiscordLogBot/blob/master/data/events.txt to see a complete list of events and what they do."
+    not_log_events = "Events: `{}` do not exist, go to https://logbot.rtfd.io to find a list of valid events."
     already_logging = "This channel is already set to log `{}`."
     not_enough_arguments = "Not enough arguments."
     no_event_list = "This channel doesn't have an event list because it isn't a logging channel!"
