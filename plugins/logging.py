@@ -31,8 +31,8 @@ class LoggingPlugin(Plugin):
     #TODO: Message Delete
     #TODO: Message Edit
     #TODO: Mention Everyone
-    @Plugin.listen("")
-    def on_mention(self, event):
+    @Plugin.listen("WebhooksUpdate")
+    def on_mention_everyone(self, event):
 
 
         #Assigning some variables.
@@ -42,7 +42,7 @@ class LoggingPlugin(Plugin):
         event_type = ""
         guild_id = str(event.guild.id)
         send_message = self.bot.client.api.channels_messages_create
-        data = {"guild_data":guilds[guild_id]}
+        #data = {"guild_data":guilds[guild_id]}
 
 
         #Checking if user event
@@ -132,7 +132,7 @@ class LoggingPlugin(Plugin):
     #TODO: Member Updated
     #TODO: Role Created
     @Plugin.listen("GuildRoleCreate")
-    def on_mention(self, event):
+    def on_role_create(self, event):
 
 
         #Assigning some variables.
@@ -142,7 +142,7 @@ class LoggingPlugin(Plugin):
         event_type = "ROLE_CREATE"
         guild_id = str(event.guild.id)
         send_message = self.bot.client.api.channels_messages_create
-        data = {"guild_data":guilds[guild_id]}
+        #data = {"guild_data":guilds[guild_id]}
 
 
         #Checking if user event
@@ -218,17 +218,17 @@ class LoggingPlugin(Plugin):
     #TODO: Role Updated
     #TODO: Role Deleted
     @Plugin.listen("GuildRoleDelete")
-    def on_mention(self, event):
+    def on_role_delete(self, event):
 
 
         #Assigning some variables.
         guilds = load()
         admin_event = False
-        user_event = False
+        user_event = True
         event_type = "ROLE_DELETE"
         guild_id = str(event.guild.id)
         send_message = self.bot.client.api.channels_messages_create
-        data = {"guild_data":guilds[guild_id]}
+        #data = {"guild_data":guilds[guild_id]}
 
 
         #Checking if user event
