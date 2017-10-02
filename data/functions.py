@@ -24,31 +24,42 @@ def response_to_class(log_type, class_name):
 
 
 
-def create_log_embed(event_type, event):
+def create_log_embed(event_type, event, custom=False, data={}):
     guilds = load()
-    log_message = response_to_class("rich", event_type)
     embed = MessageEmbed()
     
-    content = log_message[0]
-    if log_message[0] != None:
-        content = log_message[0].format(e=event)
-    
-    embed.title = log_message[1]
-    if log_message != None:
-        embed.title = log_message[1].format(e=event)
-    
-    embed.description = log_message[2]
-    if log_message[2] != None:
-        embed.description = log_message[2].format(e=event)
-    
-    embed.footer.text = log_message[3]
-    if log_message[3] != None:
-        embed.footer.text = log_message[3].format(e=event)
-    
-    embed.url = log_message[4]
-    if log_message[4] != None:
-        embed.url = log_message[4].format(e=event)
-    embed.color = log_message[5]
+    if not custom:
+        log_message = response_to_class("rich", event_type)
+        content = log_message[0]
+        if log_message[0] != None:
+            content = log_message[0].format(e=event)
+        
+        embed.title = log_message[1]
+        if log_message != None:
+            embed.title = log_message[1].format(e=event)
+        
+        embed.description = log_message[2]
+        if log_message[2] != None:
+            embed.description = log_message[2].format(e=event)
+        
+        embed.footer.text = log_message[3]
+        if log_message[3] != None:
+            embed.footer.text = log_message[3].format(e=event)
+        
+        embed.url = log_message[4]
+        if log_message[4] != None:
+            embed.url = log_message[4].format(e=event)
+        embed.color = log_message[5]
+    """else:   #IGNORE FOR NOW
+        if "content" in data:
+            content = data["content"]
+        
+        if "title" in data:
+            title = data["title"]
+        
+        if "desciption" in data:
+            desciption = data["response"]"""
+            
     return [content, embed]
     
 
