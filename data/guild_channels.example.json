@@ -1,0 +1,41 @@
+{
+  "admin_logs": {
+    "360636176157114369":{
+      "events":[
+        "GUILD_CREATE"
+      ],
+      "data":{
+        "GUILD_CREATE":{
+          "ignored_guilds":[
+            "219893635439656961",
+            "336806082783608834"
+          ]
+        }
+      }
+    }
+  },
+  "219893635439656961":{
+    "360636176157114369":{
+      "events":[
+        "ROLE_CREATE",
+        "RANDOM_CAT",
+        "CHANNEL_CREATE"
+      ],
+      "data":{
+        "RANDOM_CAT":{
+          "ignored_users":[
+            "360581683705020421"
+          ]
+        },
+        "MESSAGE_DELETE":{
+          "ignored_channels":[
+            "219893635439656961"
+          ],
+          "ignored_users":[
+            "360581683705020421"
+          ]
+        }
+      }
+    }
+  }
+}
