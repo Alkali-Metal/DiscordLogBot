@@ -11,6 +11,7 @@ from datetime import datetime
 log_types = {"rich":responses.fancy, "compact":responses.compact,
 "fanceh":responses.fanceh}
 
+
 def load_config():
     with open("config.yaml", 'r') as file:
         data = yaml.load(file)
@@ -18,8 +19,8 @@ def load_config():
 
 
 
-def response_to_class(log_type, class_name):
-    c = getattr(log_types[log_type], class_name)
+def response_to_class(log_type, event_name):
+    c = getattr(log_types[log_type], event_name)
     return c
 
 
@@ -102,3 +103,7 @@ def is_hushed(log_event, guild_id, channel_id, user_id):
             return True
         else:
             return False
+
+#TODO: IMplement custom data handling
+#def create_custom_message(log_event, data):
+#    if 
