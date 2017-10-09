@@ -23,8 +23,8 @@ user_events = {
 
 
 
-class LoggingCommands(Plugin):    
-    
+class LoggingCommands(Plugin):
+
     #NOTE: event add command
     @Plugin.command("add", group="event")
     def add_event(self, event):
@@ -72,6 +72,56 @@ class LoggingCommands(Plugin):
             return event.msg.reply(response.not_enough_arguments)
 
 
+    #NOTE: event remove command
+    @Plugin.command("remove", group="event")
+    def remove_event(self, event):
+        if len(event.args) >= 1:
+            
+            #Loading the storage
+            guilds = storage.load()
+            
+            #Setting some variables
+            guild_id = str(event.guild.id)
+            channel_id = str(event.msg.channel_id)
+            not_log_event = []
+            not_logging = []
+            removed_log_event = []
+            
+            #Checking permissions
+            if not is_allowed(guild=event.msg.guild, user=event.msg.author):
+                return event.msg.reply(response.command.invalid_permissions)
+            
+            #Make sure the channel is a log channel
+            if channel_id not in guilds[guild_id]:
+                return event.msg.reply(response.command.not_log_event)
+            
+            #Make sure the log event is valid
+            for log_event in event.args:
+                log_event = log_event.upper()
+                if log_event in user_events:
+                    if log_event not in guilds[guild_id][channel_id]["events"]:
+                        not_logging.append(log_event)
+                    else:
+                        guilds[guild_id][channel_id]["events"].remove(log_event)
+                        removed_log_event.append(log_event)
+                else:
+                    not_log_event.append(log_event)
+            storage.write(guilds)
+            if len(removed_log_event):
+                event.msg.reply(response.command.removed_log_events.format(
+                                               "`, `".join(removed_log_event)))
+            if len(not_logging):
+                event.msg.reply(response.command.not_logging.format(
+                                                      "`, `".join(not_logging)))
+            if len(not_log_event):
+                event.msg.reply(response.command.not_log_events.format(
+                                                    "`, `".join(not_log_event)))
+
+        else:
+            return event.msg.reply(response.not_enough_arguments)
+
+
+
     #NOTE: event list command
     @Plugin.command("list", group="event")
     def list_events(self, event):
@@ -106,15 +156,11 @@ class LoggingCommands(Plugin):
         channel_id = str(event.msg.channel_id)
         log_types = {"simple":"compact",
         "plain":"compact",
-        "boring":"compact",
         "compact":"compact",
-        "worst":"compact",
-        "better":"fanceh",
         "fanceh":"fanceh",
         "fancy-ish":"fanceh",
         "fancy":"rich",
-        "rich":"rich",
-        "best":"rich"}
+        "rich":"rich"}
         
         #Permission checking
         if not is_allowed(guild=event.msg.guild, user=event.msg.author):
