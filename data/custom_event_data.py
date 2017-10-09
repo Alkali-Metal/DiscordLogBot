@@ -1,26 +1,16 @@
 custom_data = {
-    "USER_JOIN":[
-        "response":[
-            "rich",
-            "fanceh",
-            "compact"
+    "USER_JOIN":{
+        "rich":[
+            "title",
+            "response",
+            "content"
         ],
-        "title":[
-            "rich",
-            "fanceh"
+        "fanceh":[
+            "title",
+            "response"
         ],
-        "content":[
-            "rich"
+        "compact":[
+            "response"
         ]
-    ],
-    "MESSAGE_EDIT":[
-        "ignored_channels",
-        "ignored_users"
-    ],
-    "MESSAGE_DELETE":[
-        "ignored_channels",
-        "ignored_users"
-    ]
+    }
 }
-
-
