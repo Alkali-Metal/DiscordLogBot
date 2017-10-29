@@ -107,3 +107,13 @@ def is_hushed(log_event, guild_id, channel_id, user_id):
 #TODO: IMplement custom data handling
 #def create_custom_message(log_event, data):
 #    if 
+
+
+class Log:
+    def pump(client, channel, message=None, embed=None):
+        client.channels_messages_create(int(channel),
+                                        content=message,
+                                        embed=embed)
+    
+    def remove(client, channel, message_id):
+        client.channels_messages_get(int(channel))
